@@ -47,7 +47,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/music/video.php">Video</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/artist.php">Artist</a></li>
+                                <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/artists.php">Artists</a></li>
                                 <!-- <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/contact.php">About us</a></li> -->
                             </ul>
 
@@ -55,7 +55,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             <div class="login-register-cart-button d-flex align-items-center">
                                 <!-- Login/Register -->
 
-                                <div class="login-register-btn mt-2 mr-15">
+                                <div class="login-register-btn mt-2">
 
                                     <!----Login with Sessions----->
                                     <?php
@@ -64,7 +64,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     } else {
                                        echo '<h6 class="text-white">Hi , ' .$_SESSION["user"] . '
                                        <a href="helpers/logout.php?lastPage=' . $_SERVER['REQUEST_URI'] . '" class="btn btn-dark">
-                                           <span class="fa fa-sign-out"></span> Log out
+                                           <span class="fa fa-sign-out"></span>Log out
                                        </a>
                                    </h6>';
                                     }
@@ -81,10 +81,11 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
     </div>
 </header>
-
-
 <style>
-   .mr-15{
-       margin-right: 30px;
-   }
+ .btn{
+     font-size: 12px;
+ }
+ .mt-5{
+   margin-top: 2px;
+ }
 </style>
