@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include $_SERVER['DOCUMENT_ROOT'] . '/flow/helpers/database.php';
 
+// Check credentials first in User's table then in Admin's table
 $db = new Database();
 if (isset($_POST["submit"])) {
     $email = $_POST["email"];
@@ -12,6 +13,7 @@ if (isset($_POST["submit"])) {
     if (mysqli_num_rows($db->res) > 0) {
         $user = mysqli_fetch_array($db->res);
         $_SESSION['user'] = $user['user_name'];
+        $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_img']=$user['user_img'];
         header('location:./index.php');
     } else{

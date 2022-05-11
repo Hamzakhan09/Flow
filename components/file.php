@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Flow-The Music Streamers</title>
+    <title>Flow - Stream Music Anywhere</title>
 
     <!-- Favicon -->
     <link rel="icon" href="http://<?php echo $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']?>/flow/dist/img/core-img/flow.png">
@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="http://<?php echo $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']?>/flow/dist/css/one-music-icon.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']?>/flow/dist/css/owl.carousel.min.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']?>/flow/dist/css/aos.css">
-    
     <link rel="stylesheet" href="http://<?php echo $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']?>/flow/dist/css/custom.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
+    
+
 </head>

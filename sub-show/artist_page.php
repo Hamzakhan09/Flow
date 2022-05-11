@@ -22,6 +22,7 @@ if (isset($_GET['id'])) {
     <style>
         .rounded-circle {
             height: 225px;
+            width: 225px;
             margin: auto;
             display: block;
         }
@@ -34,14 +35,20 @@ if (isset($_GET['id'])) {
             text-align: center;
         }
 
+        .col-md-4 {
+            border: 1px solid black;
+        }
         div.classy-nav-container {
             background-color: black !important;
         }
+        .single-cool-fact {
+            text-align: center;
+        }
+
     </style>
 </head>
 
 <body>
-
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/flow/components/nav.php' ?>
     <div style="height: 100px;"></div>
     <div class="container my-5 p-10">
@@ -50,7 +57,30 @@ if (isset($_GET['id'])) {
                 <div class="photo m-3">
                     <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($artist['artist_photo']); ?>" class="rounded-circle" alt="Artist Photo" style="object-fit: cover;" />
                     <h2 class="text"><?php echo $artist['artist_name'] ?></h2>
-                    <p class="text-center fs-5 overflow-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae corrupti sit aliquam accusamus rem quibusdam odit molestias. Cum, cupiditate atque.</p>
+                    <div class="col-12">
+                    <div class="oneMusic-cool-facts-area">
+                        <div class="row">
+                                <div class="single-cool-fact mt-15 mb-30">
+                                    <div class="scf-text">
+                                        <h2><span class="counter">25</span>mil</h2>
+                                        <p>Songs in Playlist</p>
+                                    </div>
+                                </div>
+                                <div class="single-cool-fact mb-30">
+                                    <div class="scf-text">
+                                        <h2><span class="counter">2401</span></h2>
+                                        <p>New Songs</p>
+                                    </div>
+                                </div>
+                                <div class="single-cool-fact mb-30">
+                                    <div class="scf-text">
+                                        <h2><span class="counter"><?php echo $id%5 ?></span></h2>
+                                        <p>Awards Won</p>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
 
@@ -61,9 +91,9 @@ if (isset($_GET['id'])) {
 
                         <?php while ($row = mysqli_fetch_assoc($albums)) { ?>
                             <div class="single-album">
-                                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['album_thumbnail']); ?>" alt="Album Photo" style="object-fit: cover; height: 200px;"/>
+                                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['album_thumbnail']); ?>" alt="Album Photo" style="object-fit: cover; " />
                                 <div class="album-info">
-                                    <a href="#">
+                                    <a href="album_page.php?id=<?php echo $row['album_id'] ?>">
                                         <h5 class="text-dark"><?php echo $row['album_title'] ?></h5>
                                     </a>
                                     <p><?php echo $row['album_year'] ?></p>
@@ -79,9 +109,9 @@ if (isset($_GET['id'])) {
 
                         <?php while ($row = mysqli_fetch_assoc($music)) { ?>
                             <div class="single-album">
-                                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['music_thumbnail']); ?>" alt="Music Photo" height="200px" />
+                                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['music_thumbnail']); ?>" alt="Music Photo" style="object-fit: cover; " />
                                 <div class="album-info">
-                                    <a href="#">
+                                    <a href="music_page.php?id=<?php echo $row['music_id'] ?>">
                                         <h5 class="text-dark"><?php echo $row['music_title'] ?></h5>
                                     </a>
                                     <p><?php echo $row['music_year'] ?></p>

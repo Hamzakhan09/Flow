@@ -12,6 +12,12 @@
 
     <!--Aos plugin---->
     <script src="http://<?php echo $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']?>/flow/dist/js/aos.js"></script>
+
+    <script src="http://<?php echo $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']?>/flow/dist/js/wav.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
+
+    
     <script>
     AOS.init();
   </script>

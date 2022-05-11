@@ -1,7 +1,8 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
-}
+  }
+  
 
 ?>
 
@@ -42,15 +43,14 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow">Home</a></li>
                                 <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/albums.php">Albums</a></li>
                                 <li><a href="#">Music</a>
-                                    <ul class="dropdown">
-                                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/music/audio.php">Audio</a></li>
-                                        <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/music/video.php">Video</a></li>
-                                    </ul>
+                                <ul class="dropdown">
+                                <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/music/music.php">Audio</a></li>
+                                <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/music/video.php">Video</a></li>
+                                </ul>               
                                 </li>
                                 <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/artists.php">Artists</a></li>
-                                <!-- <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/contact.php">About us</a></li> -->
+                                <li><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/browse.php">Browse</a></li>
                             </ul>
-
                             <!-- Login/Register-->
                             <div class="login-register-cart-button d-flex align-items-center">
                                 <!-- Login/Register -->
@@ -62,11 +62,13 @@ if (session_status() === PHP_SESSION_NONE) {
                                     if (!isset($_SESSION['user'])) {
                                         echo "<a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/flow/login.php' id='loginBtn'>Login / Signup</a>";
                                     } else {
-                                       echo '<h6 class="text-white">Hi , ' .$_SESSION["user"] . '
-                                       <a href="helpers/logout.php?lastPage=' . $_SERVER['REQUEST_URI'] . '" class="btn btn-dark">
-                                           <span class="fa fa-sign-out"></span>Log out
-                                       </a>
-                                   </h6>';
+                                        echo 
+                                        '<h5 class="text-white">Hi, ' .$_SESSION["user"] . '
+                                          <a href="http://'.$_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'].'/flow/helpers/logout.php?lastPage=' . $_SERVER['REQUEST_URI'] . '">
+                                            <i class="fa fa-sign-out"></i>
+                                            <span>Signout</span>
+                                          </a>
+                                        </h5>';
                                     }
                                     ?>
                                    

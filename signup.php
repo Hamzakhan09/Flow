@@ -6,12 +6,16 @@ include $_SERVER['DOCUMENT_ROOT'] . '/flow/helpers/database.php';
 
 $db = new Database();
 if (isset($_POST['submit'])) {
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $db->insert('users', ['user_name' => $name, 'user_email' => $email, 'user_password' => $password]);
+  $data['user_name'] = $_POST['name'];
+  $data['user_email'] = $_POST['email'];
+  $data['user_password'] = $_POST['password'];
+
+  $db->insert('users', $data);
   if ($db->res) {
-    $_SESSION['user'] = $name; 
+    $db->select('users', '*', '`user_email` = "'.$data['user_email'].'"');
+    $user = mysqli_fetch_assoc($db->res);
+    $_SESSION['user'] = $user['user_name']; 
+    $_SESSION['user_id'] = $user['user_id']; 
     header('location:./login.php');
   }
 }
@@ -41,7 +45,7 @@ if (isset($_POST['submit'])) {
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(dist/img/bg-img/breadcumb3.jpg);">
         <div class="bradcumbContent">
-            <p>Hi ! There</p>
+            <p>Hi There!</p>
             <h2>Create an account</h2>
         </div>
     </section>
@@ -58,7 +62,7 @@ if (isset($_POST['submit'])) {
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" name="name" maxlength="50">
+                                    <input type="text" class="form-control" name="name" maxlength="50" required>
                                     <!-- <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small> -->
                                 </div>
                                 <div class="form-group">
@@ -95,7 +99,7 @@ if (isset($_POST['submit'])) {
     ?>
     <script>
         $(document).ready(function() {
-            $("#pass2").change(function() {
+            $("#pass2").on('keyup', function() {
                 $("#submit").addClass('disabled');
                 let passMatch = $("#pass1").val() === $("#pass2").val();
                 $("#passMessage").prop('hidden', passMatch);
