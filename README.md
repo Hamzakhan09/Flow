@@ -1,4 +1,4 @@
-Php project (Sound)
+Php OOP concept project
 
 # Flow
 A music streaming site contains audio / video music
