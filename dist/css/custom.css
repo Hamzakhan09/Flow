@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,500,500i,600,600i,700,700i");
+
 img {
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -47,4 +49,9 @@ img {
 form input, textarea {
     font-family: "Archivo Narrow";
     font-size: 20px !important;
+}
+
+.rounded-circle {
+  border-radius: 17px!important;
+  width: -webkit-fill-available;
 }
