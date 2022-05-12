@@ -4,5 +4,5 @@ Php project (Sound)
 A music streaming site contains audio / video music
 
 <h2>Key Features</h2>
-<li>1. Admin pannel</li>
-<li>1. Front end pannel</li>
+<li>Admin pannel</li>
+<li>Front end pannel</li>
