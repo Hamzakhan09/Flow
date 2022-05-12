@@ -1,16 +1,21 @@
-Php OOP concept project
+# **Flow**
+### *Discover the music*
 
-# Flow
-A music streaming site contains audio / video music
 
-<h2>Key Features</h2>
-<li>Admin pannel</li>
-<li>Front end pannel</li>
-<li>Signup / Signin </li>
-<li>Listen audio / video music</li>
 
-<h3>What Admin should do</h3>
-<p>Admin can create read update delete all operations through website</p>
+## Description
+A website to browse different audio / video music .
 
-<h2>How to download</h2>
-<p>first download or pull this repositry then create a folder in htdoc => flow then import database file in mysql.....</p>
+
+## Features
+    - Admin pannel
+    - Amazing UI
+    - Play music audio / video
+    - Searching compatibilty
+    
+    
+## Tech
+
+- ![PHP](https://ibb.co/6PztQX1/flow.png)!
+- ![Javacript](https://i.ibb.co/TczvvbK/Bootstrap.png)  [Javascript] - enhance web pages!
+
