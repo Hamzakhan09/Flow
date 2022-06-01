@@ -70,7 +70,7 @@ if (!isset($_SESSION['admin'])) {
                 Welcome, <?php echo $_SESSION['admin'] ?>
             </li>
             <li class="nav-item d-flex align-items-center mx-3 fs-4">
-               <a href="http://<?php echo $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT']?>/flow/helpers/logout.php"><b>Logout</b></a>
+               <a href="../logout.php"><b>Logout</b></a>
             </li>
         </ul>
     </div>
