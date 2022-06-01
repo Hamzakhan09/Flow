@@ -1,8 +1,3 @@
-
-# Flow
-A music streaming site
-=======
-
 # Flow
 
 A website to browse multiple audio / video music .
