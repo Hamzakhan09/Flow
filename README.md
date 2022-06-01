@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Flow
 A music streaming site
 =======
