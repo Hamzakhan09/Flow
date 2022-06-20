@@ -55,3 +55,27 @@ form input, textarea {
   border-radius: 17px!important;
   width: -webkit-fill-available;
 }
+/* 
+a:hover{
+    color: #212529 !important;
+} */
+
+
+@media (min-width: 375px)and (max-width:760px){
+   .single-album-area{
+        /* background-color: red; */
+         display: grid;
+         grid-template-columns: repeat(2, 3fr);
+       }
+    
+       .album-info1 a > h5{
+        margin: 50px auto 0px auto;
+       }
+
+       .my-5 {
+        margin-top: 0rem!important;
+        margin-bottom: 3rem!important;
+    }
+
+    
+    }

@@ -34,24 +34,24 @@ if (isset($_GET['id'])) {
 
   <style>
     .bg-image {
-  /* The image used */
-  background-image: url("data:image/jpg;charset=utf8;base64,<?php echo base64_encode($music['music_thumbnail']); ?>");
-  position: absolute;
-  width: 110%;
-  transform: translateX(-80px);
+      /* The image used */
+      background-image: url("data:image/jpg;charset=utf8;base64,<?php echo base64_encode($music['music_thumbnail']); ?>");
+      position: absolute;
+      width: 110%;
+      transform: translateX(-80px);
 
-  /* Add the blur effect */
-  filter: blur(8px);
-  -webkit-filter: blur(50px);
+      /* Add the blur effect */
+      filter: blur(8px);
+      -webkit-filter: blur(50px);
 
-  /* Full height */
-  height: 110%;
+      /* Full height */
+      height: 110%;
 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   </style>
 </head>
 
@@ -62,13 +62,13 @@ if (isset($_GET['id'])) {
 
   <div class="container">
     <div class="music-player">
-      <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($music['music_thumbnail']); ?>" alt="music-icon" id="music-icon">
+        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($music['music_thumbnail']); ?>" alt="music-icon" id="music-icon">
       <div class="info">
         <h1><?php echo $music['music_title']; ?></h1>
         <h3>
           <a href="./artist_page.php?id=<?php echo $music['artist_id'] ?>"><?php echo $music['artist_name']; ?></a>
-      </h3>
-        <audio controls>
+        </h3>
+        <audio preload="auto" controls>
           <source src="http://localhost/flow<?php echo $music['music_path']; ?>">
         </audio>
         <a href="#" class="d-flex justify-content-between mx-4 review" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -82,74 +82,75 @@ if (isset($_GET['id'])) {
               </div>
             <?php } ?>
           </div>
-          <i class="mdi mdi-star-half-full fs-3">Review</i>
+          <i class="mdi mdi-star-half-full fs-3 mt-3">Review</i>
         </a>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade mt" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="review">
+          <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'] ?>">
+          <input type="hidden" name="music_id" value="<?php echo $_GET['id'] ?>">
+          <input type="hidden" name="datetime" value="<?php echo date('Y-m-d H:i:s') ?>">
 
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <form id="review">
-              <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'] ?>">
-              <input type="hidden" name="music_id" value="<?php echo $_GET['id'] ?>">
-              <input type="hidden" name="datetime" value="<?php echo date('Y-m-d H:i:s') ?>">
 
-              
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Write a review</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Write a review</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex justify-content-center">
+                <div class="ratingControl mb-2">
+                  <input id="score100" class="ratingControl__radio" type="radio" name="rating" value="5.0" />
+                  <label for="score100" class="ratingControl__star" title="Five Stars"></label>
+                  <input id="score90" class="ratingControl__radio" type="radio" name="rating" value="4.5" />
+                  <label for="score90" class="ratingControl__star" title="Four & Half Stars"></label>
+                  <input id="score80" class="ratingControl__radio" type="radio" name="rating" value="4.0" />
+                  <label for="score80" class="ratingControl__star" title="Four Stars"></label>
+                  <input id="score70" class="ratingControl__radio" type="radio" name="rating" value="3.5" />
+                  <label for="score70" class="ratingControl__star" title="Three & Half Stars"></label>
+                  <input id="score60" class="ratingControl__radio" type="radio" name="rating" value="3.0" />
+                  <label for="score60" class="ratingControl__star" title="Three Stars"></label>
+                  <input id="score50" class="ratingControl__radio" type="radio" name="rating" value="2.5" />
+                  <label for="score50" class="ratingControl__star" title="Two & Half Stars"></label>
+                  <input id="score40" class="ratingControl__radio" type="radio" name="rating" value="2.0" />
+                  <label for="score40" class="ratingControl__star" title="Two Stars"></label>
+                  <input id="score30" class="ratingControl__radio" type="radio" name="rating" value="1.5" />
+                  <label for="score30" class="ratingControl__star" title="One & Half Star"></label>
+                  <input id="score20" class="ratingControl__radio" type="radio" name="rating" value="1.0" />
+                  <label for="score20" class="ratingControl__star" title="One Star"></label>
+                  <input id="score10" class="ratingControl__radio" type="radio" name="rating" value="0.5" />
+                  <label for="score10" class="ratingControl__star" title="Half Star"></label>
                 </div>
-                <div class="modal-body">
-                  <div class="d-flex justify-content-center">
-                    <div class="ratingControl mb-2">
-                      <input id="score100" class="ratingControl__radio" type="radio" name="rating" value="5.0" />
-                      <label for="score100" class="ratingControl__star" title="Five Stars"></label>
-                      <input id="score90" class="ratingControl__radio" type="radio" name="rating" value="4.5" />
-                      <label for="score90" class="ratingControl__star" title="Four & Half Stars"></label>
-                      <input id="score80" class="ratingControl__radio" type="radio" name="rating" value="4.0" />
-                      <label for="score80" class="ratingControl__star" title="Four Stars"></label>
-                      <input id="score70" class="ratingControl__radio" type="radio" name="rating" value="3.5" />
-                      <label for="score70" class="ratingControl__star" title="Three & Half Stars"></label>
-                      <input id="score60" class="ratingControl__radio" type="radio" name="rating" value="3.0" />
-                      <label for="score60" class="ratingControl__star" title="Three Stars"></label>
-                      <input id="score50" class="ratingControl__radio" type="radio" name="rating" value="2.5" />
-                      <label for="score50" class="ratingControl__star" title="Two & Half Stars"></label>
-                      <input id="score40" class="ratingControl__radio" type="radio" name="rating" value="2.0" />
-                      <label for="score40" class="ratingControl__star" title="Two Stars"></label>
-                      <input id="score30" class="ratingControl__radio" type="radio" name="rating" value="1.5" />
-                      <label for="score30" class="ratingControl__star" title="One & Half Star"></label>
-                      <input id="score20" class="ratingControl__radio" type="radio" name="rating" value="1.0" />
-                      <label for="score20" class="ratingControl__star" title="One Star"></label>
-                      <input id="score10" class="ratingControl__radio" type="radio" name="rating" value="0.5" />
-                      <label for="score10" class="ratingControl__star" title="Half Star"></label>
-                    </div>
-                    <h4 id="rating-number"></h4>
-                  </div>
-                  <div class="input-group comment-box">
-                    <span class="input-group-text">Your Comment</span>
-                    <textarea type="text" class="form-control" name="message" value="<?php echo $my_review['review_message'] ?>" id="comment-txt"></textarea>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-outlined-dark" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-warning">Post</button>
-                </div>
-            </form>
-          </div>
-        </div>
+                <h4 id="rating-number"></h4>
+              </div>
+              <div class="input-group comment-box">
+                <span class="input-group-text">Your Comment</span>
+                <textarea type="text" class="form-control" name="message" value="<?php echo $my_review['review_message'] ?>" id="comment-txt"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outlined-dark" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-warning">Post</button>
+            </div>
+        </form>
       </div>
     </div>
 
   </div>
-  </div>
-  </div>
+
+
+
+
 
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/flow/components/scripts_file.php' ?>
   <script>
     $(document).ready(function() {
       $('#review').submit(function(e) {
         event.preventDefault();
-        
+
         let myUrl = 'http://<?php echo $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] ?>/flow/sub-show/review_submit.php';
         let form = $(this);
         let serializedData = $(this).serialize();

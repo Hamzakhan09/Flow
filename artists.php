@@ -31,59 +31,42 @@ $db = new Database();
             display: block;
             padding: 0;
             min-width: 250px;
-            
+
         }
+
         p.see-artist {
             transition: letter-spacing .1s ease-out;
         }
+
         .single-album-item:hover {
             transform: scale(1.05);
             z-index: 99;
         }
+
         .single-album-item:hover p.see-artist {
             letter-spacing: .6px;
         }
-        .single-album > img {
+
+        .single-album>img {
             width: 280px;
             height: 280px;
             object-fit: cover;
         }
-        
-        @media screen and (max-width: 768px) {
-            .single-album-item {
-                display: block;
-                padding: 0;
-                min-width: 150px;
-            }
-            .single-album > img {
+
+        @media (min-width: 375px) and (max-width: 760px) {
+           
+            .single-album>img {
                 width: 90vw;
-                height: 90vw;
             }
+
             h5.artist-name {
                 font-size: 30px !important;
             }
+
             p.see-artist {
                 font-size: 15px !important;
             }
         }
-        @media screen and (max-width: 480px) {
-            .single-album-item {
-                display: block;
-                padding: 5px;
-                width: 90%;
-            }
-        }
-
-
-        /* @media screen and (max-width: 1440px) {
-            .single-album-item {
-                display: block;
-                padding: 10px;
-                width: 10
-            }
-        } */
-
-     
     </style>
 </head>
 
@@ -143,9 +126,9 @@ $db = new Database();
                         $firstLetters .= "$word[0] ";
                     }
                 ?>
-                    <a href="sub-show/artist_page.php?id=<?php echo $row['artist_id'] ?>" class="single-album-item ms-4 <?php echo $firstLetters ?>">
+                    <a href="sub-show/artist_page.php?id=<?php echo $row['artist_id'] ?>" class="single-album-item ms-2 <?php echo $firstLetters ?>">
                         <div class="single-album">
-                            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['artist_photo']); ?>" alt="Artist Photo" >
+                            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['artist_photo']); ?>" alt="Artist Photo">
                             <div class="album-info">
                                 <h5 class="artist-name"><?php echo $row['artist_name'] ?></h5>
                                 <p class="see-artist">S E E &nbsp; A R T I S T</p>

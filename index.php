@@ -23,23 +23,68 @@ $artists = $db->res;
   include 'components/file.php';
   ?>
   <style>
-    .single-album>img,
-    .album-thumb>img {
+    .bg-overlay::after {
+      backdrop-filter: blur(5px);
+    }
+
+    .single-album>img
+     {
       object-fit: cover;
       height: 240px;
-      width: 240px;
+      width: 100%;
 
     }
 
     .album-thumb>img {
+      object-fit: fill;
       border-radius: 5px;
-      width: 290px;
+      height: 240px;
+      width: 100%;
     }
 
     .thumbnail>img {
       height: 73px;
       width: 73px;
       object-fit: cover;
+    }
+
+    .song-play-area {
+      background: transparent;
+      border: none;
+    }
+
+    .song-play-area>.song-name>p {
+      color: white;
+    }
+
+    .audioplayer-bar {
+      transform: scaleY(6);
+
+    }
+
+    .audioplayer-bar-played:after {
+      border-radius: 0px;
+      width: 15px;
+      background-color: white;
+      height: 4px;
+      top: -1px;
+    }
+
+    .audioplayer:not(.audioplayer-playing) .audioplayer-bar-played:after {
+      border: 1px solid white !important;
+    }
+
+    .audioplayer-playing .audioplayer-bar-played:after {
+      border: 1px solid white !important;
+    }
+
+    .audioplayer-bar-played {
+      background: #fca503;
+    }
+
+    .audioplayer-playing .audioplayer-playpause a:before,
+    .audioplayer-playing .audioplayer-playpause a:after {
+      background-color: #fca503;
     }
   </style>
 </head>
@@ -161,13 +206,13 @@ $artists = $db->res;
 
         <!-- Single Album Area -->
         <?php while ($row = mysqli_fetch_assoc($artists)) { ?>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+          <div class="col-12 col-sm-12 col-md-4 col-lg-2">
             <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
               <div class="album-thumb">
                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['artist_photo']); ?>" alt="Artist Photo">
 
               </div>
-              <div class="album-info" style="text-align: center;">
+              <div class="album-info1 mt-2" style="text-align: center;">
                 <a href="sub-show/artist_page.php?id=<?php echo $row['artist_id']; ?>">
                   <h5><?php echo $row['artist_name'] ?></h5>
                 </a>
@@ -183,7 +228,7 @@ $artists = $db->res;
       <div class="row">
         <div class="col-12">
           <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
-            <a href="./artists.php" class="btn oneMusic-btn">See All Artists <i class="fa fa-angle-double-right"></i></a>
+            <a href="./artists.php" class="oneMusic-btn">See All Artists <i class="fa fa-angle-double-right"></i></a>
           </div>
         </div>
       </div>
@@ -191,11 +236,11 @@ $artists = $db->res;
   </section>
   <!-- ##### Buy Now Area End ##### -->
   <?php
-  $db->select('music', 'music_thumbnail, music_path', 'music_id = 1');
+  $db->select('music', 'music_thumbnail, music_path,music_title', 'music_id = 1');
   $pasoori = mysqli_fetch_assoc($db->res);
   ?>
   <!-- ##### Featured Artist Area Start ##### -->
-  <section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style="background-image: url(dist/img/bg-img/bg-4.jpg);">
+  <section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style="background-image: url(data:image/jpg;charset=utf8;base64,<?php echo base64_encode($pasoori['music_thumbnail']); ?>);">
     <div class="container">
       <div class="row align-items-end">
         <div class="col-12 col-md-5 col-lg-4">
@@ -216,7 +261,7 @@ $artists = $db->res;
             </p>
             <div class="song-play-area" data-aos="fade-bottom">
               <div class="song-name">
-                <p>Pasoori | Ali Sethi x Shae Gill</p>
+                <p><?php echo $pasoori['music_title'] ?> | Ali Sethi x Shae Gill</p>
               </div>
               <audio preload="auto" controls>
                 <source src=".<?php echo $pasoori['music_path'] ?>">
@@ -276,7 +321,7 @@ $artists = $db->res;
               <!-- Single Top Item -->
               <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="100ms">
                 <div class="thumbnail">
-                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['album_thumbnail']); ?>" alt="Album Thumbnail">
+                  <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['album_thumbnail']); ?>" alt="Album Thumbnail">
                 </div>
                 <div class="content-">
                   <h6><?php echo $row['album_title'] ?></h6>

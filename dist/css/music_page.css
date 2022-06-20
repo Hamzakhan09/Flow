@@ -1,6 +1,18 @@
 * {
   overflow: hidden;
 }
+a:hover{
+  color: #444;
+}
+.mt{
+  margin-top: 10% !important;
+  margin-left: 9% !important;
+}
+
+.modal-body{
+ padding: 20px;
+}
+
 
 .container {
   font-family: 'Quicksand', sans-serif;
@@ -32,9 +44,10 @@ textarea {
 
 #music-icon {
   height: 244px;
-  width: 272px;
-  border-radius: 13px;
-  object-fit: cover;
+  width:50vmin;
+  border-radius: 15px;
+  object-fit: fill;
+  cursor: pointer;
 }
 
 .info {
