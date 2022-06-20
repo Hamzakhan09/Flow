@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# Flow
-A music streaming site
-=======
-
 # Flow
 
 A website to browse multiple audio / video music .
@@ -33,7 +28,7 @@ A website to browse multiple audio / video music .
 
 
 ## License
-(CC0 1.0 Universal) You're free to use this game and code in any project, personal or commercial. There's no need to ask permission before using these. Giving attribution is not required, but appreciated.
+(CC0 1.0 Universal) You're free to use this code in any project, personal or commercial. There's no need to ask permission before using these. Giving attribution is not required, but appreciated.
 
   
->>>>>>> 4b9e1b2361c867b1bd0a7042ed9c2d51b475569f
+
